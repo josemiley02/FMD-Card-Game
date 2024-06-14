@@ -4,7 +4,7 @@ namespace FMD
 {
     public struct Card
     {
-        public Card(string name, int atk, int cost, int energy, int ID, Effect effect)
+        public Card(string name, int atk, int cost, int energy, int ID, params Effect[] effect)
         {
             this.ID = ID;
             Name = name;
@@ -22,7 +22,7 @@ namespace FMD
         public int Cost { get; set;}
         public int Energy {get; set;}
         private int OriginalEnergy;
-        public Effect EffectCard { get; set; }
+        public Effect[] EffectCard { get; set; }
 
         public void SetOrigin()
         {
