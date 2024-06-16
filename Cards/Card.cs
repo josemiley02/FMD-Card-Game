@@ -14,6 +14,7 @@ namespace FMD
             Energy = energy;
             OriginalEnergy = energy;
             EffectCard = effect;
+            IsPlayed = false;
         }
         public int ID { get; private set; }
         public string Name { get; private set;}
@@ -23,11 +24,12 @@ namespace FMD
         public int Energy {get; set;}
         private int OriginalEnergy;
         public Effect[] EffectCard { get; set; }
-
+        public bool IsPlayed {get; set;}
         public void SetOrigin()
         {
             ATK = OriginalATK;
             Energy = OriginalEnergy;
+            IsPlayed = false;
         }
         public override string ToString()
         {
