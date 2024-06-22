@@ -21,35 +21,9 @@ namespace FMD
         public Stack<Card> Deck { get; set; }
         public List<Card> Hand { get; set; }
 
-        public void GetDeck()
+        public override string ToString()
         {
-            var cca = CardCentralArchive.Cards;
-            int[] cards = new int[cca.Count];
-            int select = 0;
-            {
-                ConsoleKeyInfo keyInfo;
-                StringBuilder sb = new StringBuilder();
-                do
-                {
-                    keyInfo = Console.ReadKey(true);
-                    
-                    if (char.IsDigit(keyInfo.KeyChar))
-                    {
-                        sb.Append(keyInfo.KeyChar);
-                        Console.Write(keyInfo.KeyChar);
-                    }
-                    else if (keyInfo.Key == ConsoleKey.Enter)
-                    {
-                        select = int.Parse(sb.ToString());
-                        cards[select]++;
-                        
-                        if(cards[select] > 4) continue;
-                        Deck.Push(cca[select]);
-                        sb.Clear();
-                    }
-                }
-                while (Deck.Count < 25);
-            }
+            return nameof(Player) + " " + ID + ": " + Name;
         }
     }
 }
