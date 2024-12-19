@@ -1,4 +1,5 @@
 using FMD.Backend.Elements.Effects;
+using FMD.Backend.Elements.Games;
 using FMD.Backend.Elements.Players;
 using FMD.Backend.Interfaces;
 
@@ -11,4 +12,13 @@ public abstract class Card : Entity
     public int OwnerId { get; set; }
     public Player Owner { get; set; } = null!;
     public ICollection<Effect> Effects { get; set; } = new List<Effect>();
+
+    public abstract void SetOrigin();
+    public void ActivateEffecst()
+    {
+        foreach (var e in Effects)
+        {
+            e.Activate(new Game());
+        }
+    }
 }
