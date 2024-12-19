@@ -12,4 +12,16 @@ public class Player : Entity
     public Player Opponent { get; set; } = null!;
     public Stack<Card> Deck { get; set; } = new Stack<Card>();
     public List<Card> Hand { get; set; } = new List<Card>();
+
+    public void Draw(int count)
+    {
+        while (count > 0)
+        {
+            Hand.Add(Deck.Pop());
+        }
+    }
+    public void Sacrifice(MonsterCard card)
+    {
+        Manna += card.Energy;
+    }
 }
